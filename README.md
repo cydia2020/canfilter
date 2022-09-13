@@ -2,7 +2,7 @@
 
 This is a radar can message interceptor designed for Toyota NODSU Camry/CH-R. It is based on an STM32 mileage manipulator board.
 
-- For CH-R, it enables full speed ACC with openpilot.
+- For C-HR, it enables full speed ACC with openpilot.
 - For Camry Hybrid/XLE/XSE, it enables full speed ACC with stock system and openpilot.
 - For Camry LE/SE, it bypass 28mph(45kph) speed limit. But the ABS module ignores braking request under 15mph(24kph). This limit applies to both stock system and openpilot.
 
@@ -29,7 +29,7 @@ Below is the radar's pinout for the 2017 - 2018 C-HR (EM32N0U).
 <img src="/wiring_diagrams/chr-radar-pinout.png"  width=50% height=50%>
 
 ## Flashing
-The board comes with flash read out protection, you will need STM32 ST-LINK Utility to unlock it first. then you can make flash or make flash-bootloader.
+The board comes with flash read out protection, you will need STM32 ST-LINK Utility to unlock it first. then you can `make flash` or `make flash-bootloader`.
 
 1. To put the device to DEBUG mode, first connect NRST to GND, power it and then disconnect NRST.
 2. Disable Read Out Protection in Target/Option Bytes.. in STM32 ST-LINK Utility
@@ -83,7 +83,7 @@ The board supports auto FW upgrading. If commaai accepts this, this function can
 
 ## Feature switches
 - LOCKSPEED: this applies to Camry XLE/XSE/LE/SE. when set, lock speed to engage above 30kph, disengage below 25kph (lost lead alert in dash). XSE/XLE users should unset this to get full speed. (If I have a method to do this automatically in the future, you won't need this)
-- FAKELEAD: when speed below 45kph, fake a lead car, then you can press SET to engage. This is very dangerous if the button pressed unexpected.
+- FAKELEAD: when speed below 45kph, fake a lead car, then you can press SET to engage. This is very dangerous if the button was pressed unexpectedly.
 - PASSTHRU: all features disable. The board is invisible on CAN bus. It still accepts feature updating, FW upgrading. 
 - MIRRORMSG: Mirror stock ACC_CONTROL to another msg. OP detect this msg to enable long control. You can unset this to use stock long control instead.
 - DISTANCEREQ: Automatically handle lead car distance button.
