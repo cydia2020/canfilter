@@ -25,6 +25,8 @@ Please check pictures in board/resources. The radar has 2 can buses, CAN2 (not t
 The CAN1 on filter board should be connected to CAN gateway(the car), CAN2 to be connected to radar CAN2.
 Double check the wiring, especially GND and 12V pins, or you will fry your radar!
 
+Below is the radar's pinout for the 2017 - 2018 C-HR (EM32N0U).
+<img src="/wiring_diagrams/chr-radar-pinout.png"  width=50% height=50%>
 
 ## Flashing
 The board comes with flash read out protection, you will need STM32 ST-LINK Utility to unlock it first. then you can make flash or make flash-bootloader.
